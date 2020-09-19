@@ -7,5 +7,3 @@ dist
 venv
 venv3
 .DS_Store
-
-ancypwn-docker/*/*.py
