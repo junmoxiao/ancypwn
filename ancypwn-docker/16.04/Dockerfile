@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER Anciety <anciety512@gmail.com>
 
-COPY ./get-pip.py /tmp
+COPY ./get-pip.py /root
 
 # Apt packages
 RUN dpkg --add-architecture i386 && apt-get update && \
@@ -10,7 +10,7 @@ RUN dpkg --add-architecture i386 && apt-get update && \
     git nasm  python3 \
     build-essential \
     python3-dev python3-setuptools && \
-    python3 /tmp/get-pip.py && \
+    python3 /root/get-pip.py && \
     DEBIAN_FRONTEND=noninteractive apt-get install -qy \
     libc6-dbg \
     libc6-dbg:i386 \
