@@ -2,7 +2,7 @@ FROM ubuntu:16.04
 
 MAINTAINER Anciety <anciety512@gmail.com>
 
-COPY ./get-pip.py /root
+COPY ./get-pip.py /root/get-pip.py
 
 # Apt packages
 RUN dpkg --add-architecture i386 && apt-get update && \
