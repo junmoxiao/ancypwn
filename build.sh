@@ -32,3 +32,7 @@ ${sudo_cmd} docker build ancypwn-docker/18.04 --tag ancypwn:18.04
 
 # build 14.04 <-- this is not working yet..
 #${sudo_cmd} docker build ancypwn-docker/14.04 --tag ancypwn:14.04
+
+# build 20.04
+echo "Building 20.04 docker image..."
+${sudo_cmd} docker build ancypwn-docker/20.04 --tag ancypwn:20.04
