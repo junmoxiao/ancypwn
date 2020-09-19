@@ -2,13 +2,16 @@ FROM ubuntu:18.04
 
 MAINTAINER Anciety <anciety512@gmail.com>
 
+COPY ./get-pip.py /tmp
 
 # Apt packages
 RUN dpkg --add-architecture i386 && apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -qy \
-    git nasm  python \
+    git nasm python3 \
     build-essential \
-    python-dev python-pip python-setuptools \
+    python3-dev python3-setuptools \
+    python3 /tmp/get-pip.py && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -qy \
     libc6-dbg \
     libc6-dbg:i386 \
     gcc-multilib \
@@ -26,10 +29,10 @@ RUN dpkg --add-architecture i386 && apt-get update && \
     lxterminal && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    cd ~ && tar -xvf /usr/src/glibc/glib*.tar.xz
+    cd ~ && tar -xf /usr/src/glibc/glib*.tar.xz
 
 # python/ruby packages & gdb-plugin
-RUN pip install --no-cache-dir pwntools ropper ancypatch && \
+RUN pip3 install --no-cache-dir pwntools ropper ancypatch && \
     gem install one_gadget seccomp-tools && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
