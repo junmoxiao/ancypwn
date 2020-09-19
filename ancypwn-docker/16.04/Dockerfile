@@ -7,10 +7,10 @@ COPY ./get-pip.py /root/get-pip.py
 # Apt packages
 RUN dpkg --add-architecture i386 && apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -qy \
-    git nasm  python3 \
+    git nasm python \
     build-essential \
-    python3-dev python3-setuptools && \
-    python3 /root/get-pip.py && \
+    python-dev python-setuptools && \
+    python /root/get-pip.py && \
     DEBIAN_FRONTEND=noninteractive apt-get install -qy \
     libc6-dbg \
     libc6-dbg:i386 \
@@ -32,7 +32,7 @@ RUN dpkg --add-architecture i386 && apt-get update && \
     cd ~ && tar -xf /usr/src/glibc/glibc-2.23.tar.xz
 
 # python/ruby packages & gdb-plugin
-RUN pip3 install --no-cache-dir pwntools ropper ancypatch && \
+RUN pip install --no-cache-dir pwntools ropper ancypatch && \
     gem install one_gadget seccomp-tools && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
