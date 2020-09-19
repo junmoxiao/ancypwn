@@ -21,7 +21,7 @@ RUN dpkg --add-architecture i386 && apt-get update && \
     curl \
     glibc-source \
     cmake \
-    python3-capstone \
+    python-capstone \
     socat \
     netcat \
     ruby \
