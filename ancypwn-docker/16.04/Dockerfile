@@ -33,7 +33,7 @@ RUN dpkg --add-architecture i386 && apt-get update && \
 
 # python/ruby packages & gdb-plugin
 RUN pip install --no-cache-dir pwntools ropper ancypatch && \
-    gem install one_gadget seccomp-tools && \
+    gem install one_gadget && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # git installaing package
