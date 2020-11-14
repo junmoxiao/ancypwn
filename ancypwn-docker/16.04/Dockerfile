@@ -40,6 +40,9 @@ RUN pip install --no-cache-dir pwntools ropper ancypatch && \
 RUN cd ~/ && \
     git clone https://github.com/pwndbg/pwndbg.git && \
     cd ~/pwndbg/ && ./setup.sh && \
+    cd ~/ && \
+    git clone https://github.com/junmoxiao/Pwngdb && \
+    cp ~/Pwngdb/.gdbinit ~/ && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 ENV LANG C.UTF-8
